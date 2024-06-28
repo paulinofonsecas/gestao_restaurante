@@ -8,3 +8,21 @@ sealed class PrecoInputState extends Equatable {
 }
 
 final class PrecoInputInitial extends PrecoInputState {}
+
+final class PrecoInputChanged extends PrecoInputState {
+  const PrecoInputChanged({required this.preco});
+
+  final double preco;
+
+  @override
+  List<Object> get props => [preco];
+}
+
+final class PrecoInputError extends PrecoInputState {
+  const PrecoInputError(this.error);
+
+  final String error;
+
+  @override
+  List<Object> get props => [];
+}

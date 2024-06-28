@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:gestao_restaurante/constants.dart';
+import 'package:gestao_restaurante/features/add_produto/cubit/preco_input_cubit.dart';
 import 'package:gestao_restaurante/features/add_produto/widgets/categoria_input_field.dart';
 import 'package:gestao_restaurante/features/add_produto/widgets/descricao_input_field.dart';
 import 'package:gestao_restaurante/features/add_produto/widgets/disponibilidade_input_field.dart';
@@ -25,25 +27,34 @@ class AddProdutoBody extends StatefulWidget {
 class _AddProdutoBodyState extends State<AddProdutoBody> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(kDefaultPadding),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            NomeInputField(),
-            Gutter(),
-            DescricaoInputField(),
-            Gutter(),
-            PrecoInputField(),
-            Gutter(),
-            CategoriaInputField(),
-            Gutter(),
-            IngredienteInputField(),
-            Gutter(),
-            DisponibilidadeInputField(),
-            Gutter(),
-            ImagemInputField(),
-          ],
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<PrecoInputCubit, PrecoInputState>(
+          listener: (context, state) {
+            
+          },
+        ),
+      ],
+      child: const Padding(
+        padding: EdgeInsets.all(kDefaultPadding),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              NomeInputField(),
+              Gutter(),
+              DescricaoInputField(),
+              Gutter(),
+              PrecoInputField(),
+              Gutter(),
+              CategoriaInputField(),
+              Gutter(),
+              IngredienteInputField(),
+              Gutter(),
+              DisponibilidadeInputField(),
+              Gutter(),
+              ImagemInputField(),
+            ],
+          ),
         ),
       ),
     );

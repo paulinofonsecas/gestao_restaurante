@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/features/add_produto/bloc/bloc.dart';
 import 'package:gestao_restaurante/features/add_produto/cubit/descricao_input_cubit.dart';
 import 'package:gestao_restaurante/features/add_produto/cubit/nome_input_cubit.dart';
+import 'package:gestao_restaurante/features/add_produto/cubit/preco_input_cubit.dart';
 import 'package:gestao_restaurante/features/add_produto/widgets/add_produto_body.dart';
 
 /// {@template add_produto_page}
@@ -28,6 +29,9 @@ class AddProdutoPage extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DescricaoInputCubit(),
+        ),
+        BlocProvider(
+          create: (context) => PrecoInputCubit(),
         ),
       ],
       child: Scaffold(
