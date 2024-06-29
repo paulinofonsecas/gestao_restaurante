@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/features/client/home_page/bloc/bloc.dart';
+import 'package:gestao_restaurante/features/client/home_page/cubit/best_sallers_horizontal_cubit.dart';
+import 'package:gestao_restaurante/features/client/home_page/cubit/produto_por_categoria_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/home_page_body.dart';
 
 /// {@template home_page_page}
@@ -16,8 +18,18 @@ class HomePagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomePageBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomePageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => BestSallersHorizontalCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ProdutoPorCategoriaHorizontalCubit(),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Na Garagem'),
