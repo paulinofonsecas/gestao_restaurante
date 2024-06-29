@@ -47,7 +47,7 @@ class AddProdutoBloc extends Bloc<AddProdutoEvent, AddProdutoState> {
       imagemUrl: imagens!,
     );
 
-    final pf = ProdutoFirebase();
+    final pf = ProdutoFirebase.instance;
 
     await pf.addProduto(produto).then((value) {
       emit(const AddNewProdutoSuccess());

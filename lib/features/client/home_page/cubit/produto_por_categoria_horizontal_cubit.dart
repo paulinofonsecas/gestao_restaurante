@@ -12,7 +12,7 @@ class ProdutoPorCategoriaHorizontalCubit
       : super(ProdutoPorCategoriaHorizontalInitial());
 
   Future<void> getProdutosPorCategoria({CategoriaModel? categoria}) async {
-    final produtoFirebase = ProdutoFirebase();
+    final produtoFirebase = ProdutoFirebase.instance;
 
     emit(ProdutoPorCategoriaHorizontalLoading());
 

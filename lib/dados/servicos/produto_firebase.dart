@@ -15,8 +15,12 @@ abstract class IProdutoFirebase {
 }
 
 class ProdutoFirebase implements IProdutoFirebase {
+  ProdutoFirebase._();
   final db = FirebaseFirestore.instance;
   final storage = FirebaseStorage.instance;
+  List<ProdutoModel> produtosCache = [];
+
+  static final instance = ProdutoFirebase._();
 
   Future<List<String>?> _saveImages(ProdutoModel model) async {
     final resultUrls = <String>[];
@@ -74,7 +78,13 @@ class ProdutoFirebase implements IProdutoFirebase {
 
   @override
   Future<List<ProdutoModel>> getProdutos({CategoriaModel? categoria}) async {
+    if (produtosCache.isNotEmpty) {
+      return produtosCache;
+    }
+
     try {
+      var saida = <ProdutoModel>[];
+
       final iterables = (await db.collection('produtos').orderBy('nome').get())
           .docs
           .map((e) => e.data())
@@ -82,12 +92,15 @@ class ProdutoFirebase implements IProdutoFirebase {
       final produtos = iterables.map(ProdutoModel.fromMap).toList();
 
       if (categoria != null) {
-        return produtos.where((e) {
+        saida = produtos.where((e) {
           return e.categoria.id == categoria.id;
         }).toList();
       } else {
-        return produtos;
+        saida = produtos;
       }
+
+      produtosCache = saida;
+      return saida;
     } catch (e) {
       return Future.error(e);
     }

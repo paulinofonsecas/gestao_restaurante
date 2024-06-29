@@ -9,7 +9,7 @@ class BestSallersHorizontalCubit extends Cubit<BestSallersHorizontalState> {
   BestSallersHorizontalCubit() : super(BestSallersHorizontalInitial());
 
   Future<void> getBestSellerProducts() async {
-    final produtoFirebase = ProdutoFirebase();
+    final produtoFirebase = ProdutoFirebase.instance;
 
     emit(BestSallersHorizontalLoading());
 

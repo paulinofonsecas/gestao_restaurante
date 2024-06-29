@@ -188,7 +188,7 @@ Future<void> populateProducts() async {
   await populateCategorias();
 
   final prods = _generateProdutos(categorias);
-  final pf = ProdutoFirebase();
+  final pf = ProdutoFirebase.instance;
   for (final produto in prods) {
     await pf.addProduto(produto);
   }
