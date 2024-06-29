@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/constants.dart';
 import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
-import 'package:gestao_restaurante/features/global_search_categoria/bloc/bloc.dart';
-import 'package:gestao_restaurante/features/global_search_categoria/cubit/search_list_books_cubit.dart';
+import 'package:gestao_restaurante/global/global_search_categoria/bloc/bloc.dart';
+import 'package:gestao_restaurante/global/global_search_categoria/cubit/search_list_books_cubit.dart';
 import 'package:searchable_listview/searchable_listview.dart';
 
 /// {@template global_search_categoria_body}

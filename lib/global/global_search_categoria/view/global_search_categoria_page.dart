@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/global_search_categoria/bloc/bloc.dart';
-import 'package:gestao_restaurante/features/global_search_categoria/cubit/search_list_books_cubit.dart';
-import 'package:gestao_restaurante/features/global_search_categoria/widgets/global_search_categoria_body.dart';
+import 'package:gestao_restaurante/global/global_search_categoria/bloc/bloc.dart';
+import 'package:gestao_restaurante/global/global_search_categoria/cubit/search_list_books_cubit.dart';
+import 'package:gestao_restaurante/global/global_search_categoria/widgets/global_search_categoria_body.dart';
 
 /// {@template global_search_categoria_page}
 /// A description for GlobalSearchCategoriaPage
