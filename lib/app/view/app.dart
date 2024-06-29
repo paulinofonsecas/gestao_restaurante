@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/gestao_produtos/gestao_produtos.dart';
+import 'package:gestao_restaurante/features/admin/gestao_produtos/gestao_produtos.dart';
 import 'package:gestao_restaurante/l10n/l10n.dart';
 
 class App extends StatelessWidget {

@@ -6,12 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
 import 'package:gestao_restaurante/dados/servicos/produto_firebase.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/categoria_field_cubit.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/descricao_input_cubit.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/disponibilidade_field_cubit.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/imagem_field_cubit.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/nome_input_cubit.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/preco_input_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/categoria_field_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/descricao_input_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/disponibilidade_field_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/imagem_field_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/nome_input_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/preco_input_cubit.dart';
 import 'package:uuid/uuid.dart';
 
 part 'add_produto_event.dart';

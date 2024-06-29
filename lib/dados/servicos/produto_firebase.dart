@@ -75,7 +75,7 @@ class ProdutoFirebase implements IProdutoFirebase {
   @override
   Future<List<ProdutoModel>> getProdutos({CategoriaModel? categoria}) async {
     try {
-      final iterables = (await db.collection('produtos').get())
+      final iterables = (await db.collection('produtos').orderBy('nome').get())
           .docs
           .map((e) => e.data())
           .toList();

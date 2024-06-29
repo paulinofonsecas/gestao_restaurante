@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gestao_restaurante/constants.dart';
 import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/categoria_field_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/categoria_field_cubit.dart';
 
 class CategoriaInputField extends StatelessWidget {
   const CategoriaInputField({super.key});

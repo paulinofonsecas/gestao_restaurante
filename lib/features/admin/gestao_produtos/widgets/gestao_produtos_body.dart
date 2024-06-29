@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
-import 'package:gestao_restaurante/features/gestao_produtos/gestao_produtos.dart';
-import 'package:gestao_restaurante/features/gestao_produtos/widgets/produto_item_listview.dart';
+import 'package:gestao_restaurante/features/admin/gestao_produtos/gestao_produtos.dart';
+import 'package:gestao_restaurante/features/admin/gestao_produtos/widgets/produto_item_listview.dart';
 
 /// {@template gestao_produtos_body}
 /// Body of the GestaoProdutosPage.

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gestao_restaurante/features/add_produto/cubit/preco_input_cubit.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/preco_input_cubit.dart';
 
 class PrecoInputField extends StatelessWidget {
   const PrecoInputField({super.key});

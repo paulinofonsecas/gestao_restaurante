@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/gestao_categoria/bloc/bloc.dart';
+import 'package:gestao_restaurante/features/admin/gestao_categoria/bloc/bloc.dart';
 
 /// {@template gestao_categoria_body}
 /// Body of the GestaoCategoriaPage.

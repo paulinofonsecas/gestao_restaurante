@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/gestao_categoria/bloc/bloc.dart';
-import 'package:gestao_restaurante/features/gestao_categoria/widgets/gestao_categoria_body.dart';
+import 'package:gestao_restaurante/features/admin/gestao_categoria/bloc/bloc.dart';
+import 'package:gestao_restaurante/features/admin/gestao_categoria/widgets/gestao_categoria_body.dart';
 
 /// {@template gestao_categoria_page}
 /// A description for GestaoCategoriaPage

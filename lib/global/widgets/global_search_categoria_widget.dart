@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/gestao_categoria/view/gestao_categoria_page.dart';
+import 'package:gestao_restaurante/features/admin/gestao_categoria/view/gestao_categoria_page.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class GlobalSearchCategoriaWidget extends StatelessWidget {
