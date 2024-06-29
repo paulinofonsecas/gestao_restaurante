@@ -24,6 +24,17 @@ class GestaoProdutosPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Gestão de Produtos'),
+          // actions: [
+          //   TextButton.icon(
+          //     onPressed: () {
+          //       populateProducts().then((v) {
+          //         print('Dados criado com sucess!');
+          //       });
+          //     },
+          //     label: const Text('Generate'),
+          //     icon: const Icon(Icons.refresh),
+          //   ),
+          // ],
         ),
         body: const GestaoProdutosView(),
         floatingActionButton: FloatingActionButton(

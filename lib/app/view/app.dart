@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/client/home_page/view/home_page_page.dart';
+import 'package:gestao_restaurante/features/gestao_produtos/gestao_produtos.dart';
 import 'package:gestao_restaurante/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const HomePagePage(),
+      home: const GestaoProdutosPage(),
     );
   }
 }

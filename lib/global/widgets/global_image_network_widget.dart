@@ -19,7 +19,7 @@ class GlobalImageNetworkWidget extends StatelessWidget {
     super.key,
   });
 
-  final String url;
+  final String? url;
   final double? width;
   final double? height;
   final BoxFit? fit;

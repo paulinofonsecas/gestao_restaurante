@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
+import 'package:uuid/uuid.dart';
 
 class ProdutoModel {
   final String id;
@@ -12,6 +12,7 @@ class ProdutoModel {
   final double preco;
   final CategoriaModel categoria;
   final bool disponibilidade;
+
   ProdutoModel({
     required this.id,
     required this.nome,
@@ -68,6 +69,25 @@ class ProdutoModel {
     );
   }
 
+  factory ProdutoModel.make({
+    required String nome,
+    required String descricao,
+    required List<String> imagemUrl,
+    required double preco,
+    required CategoriaModel categoria,
+    bool? disponibilidade,
+  }) {
+    return ProdutoModel(
+      id: const Uuid().v4(),
+      nome: nome,
+      descricao: descricao,
+      imagemUrl: imagemUrl,
+      preco: preco,
+      categoria: categoria,
+      disponibilidade: disponibilidade ?? false,
+    );
+  }
+
   factory ProdutoModel.fromMap(Map<String, dynamic> map) {
     return ProdutoModel(
       id: map['id'] as String,
@@ -98,7 +118,6 @@ class ProdutoModel {
     return other.id == id &&
         other.nome == nome &&
         other.descricao == descricao &&
-        listEquals(other.imagemUrl, imagemUrl) &&
         other.preco == preco &&
         other.categoria == categoria &&
         other.disponibilidade == disponibilidade;

@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
 import 'package:gestao_restaurante/global/widgets/global_image_network_widget.dart';
@@ -10,6 +12,14 @@ class BestSellerHorizontalListItem extends StatelessWidget {
   });
 
   final ProdutoModel produto;
+
+  String? _getImage(List<String> images) {
+    if (images.isEmpty) return null;
+
+    return produto.imagemUrl.length == 1
+        ? images.first
+        : images[Random.secure().nextInt(images.length)];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +38,7 @@ class BestSellerHorizontalListItem extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             GlobalImageNetworkWidget(
-              produto.imagemUrl.firstOrNull ?? '',
+              _getImage(produto.imagemUrl),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -21,6 +21,10 @@ class ProdutoFirebase implements IProdutoFirebase {
     final resultUrls = <String>[];
 
     if (model.imagemUrl.isNotEmpty) {
+      if (model.imagemUrl.first.contains('https')) {
+        return model.imagemUrl;
+      }
+
       for (final url in model.imagemUrl) {
         final ref = storage.ref('produto_imagens').child(const Uuid().v4());
         await ref.putFile(File(url)).then((value) async {
