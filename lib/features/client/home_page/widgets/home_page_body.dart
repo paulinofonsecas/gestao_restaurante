@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/features/client/home_page/bloc/bloc.dart';
+import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:gestao_restaurante/features/client/home_page/widgets/categorias_horizontal_list.dart';
+import 'package:gestao_restaurante/features/client/home_page/widgets/initial_message.dart';
 
 /// {@template home_page_body}
 /// Body of the HomePagePage.
@@ -12,10 +14,14 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomePageBloc, HomePageState>(
-      builder: (context, state) {
-        return Center(child: Text(state.customProperty));
-      },
+    return const SingleChildScrollView(
+      child: Column(
+        children: [
+          InitialMessage(),
+          Gutter(),
+          CategoriasHorizontalList(),
+        ],
+      ),
     );
   }
 }

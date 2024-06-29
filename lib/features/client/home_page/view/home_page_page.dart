@@ -18,11 +18,15 @@ class HomePagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomePageBloc(),
-      child: const Scaffold(
-        body: HomePageView(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Na Garagem'),
+        ),
+        drawer: const Drawer(),
+        body: const HomePageView(),
       ),
     );
-  }    
+  }
 }
 
 /// {@template home_page_view}
