@@ -7,6 +7,6 @@ class DescricaoInputCubit extends Cubit<DescricaoInputState> {
   DescricaoInputCubit() : super(DescricaoInputInitial());
 
   void onChanged(String t) {
-    emit(DescricaoInputChanged(text: t));
+    emit(DescricaoInputChanged(descricao: t));
   }
 }

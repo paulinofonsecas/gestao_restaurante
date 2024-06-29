@@ -10,10 +10,10 @@ sealed class DescricaoInputState extends Equatable {
 final class DescricaoInputInitial extends DescricaoInputState {}
 
 final class DescricaoInputChanged extends DescricaoInputState {
-  const DescricaoInputChanged({required this.text});
+  const DescricaoInputChanged({required this.descricao});
 
-  final String text;
+  final String descricao;
 
   @override
-  List<String> get props => [text];
+  List<String> get props => [descricao];
 }

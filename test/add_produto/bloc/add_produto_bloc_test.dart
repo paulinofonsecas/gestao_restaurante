@@ -23,7 +23,7 @@ void main() {
     blocTest<AddProdutoBloc, AddProdutoState>(
       'CustomAddProdutoEvent emits nothing',
       build: AddProdutoBloc.new,
-      act: (bloc) => bloc.add(const CustomAddProdutoEvent()),
+      act: (bloc) => bloc.add(const AddNewProdutoEvent()),
       expect: () => <AddProdutoState>[],
     );
   });

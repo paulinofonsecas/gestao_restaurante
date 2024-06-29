@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
+import 'package:uuid/uuid.dart';
 
 abstract class IProdutoFirebase {
   Future<List<ProdutoModel>> getProdutos();
@@ -10,15 +14,36 @@ abstract class IProdutoFirebase {
 }
 
 class ProdutoFirebase implements IProdutoFirebase {
-  final FirebaseFirestore db = FirebaseFirestore.instance;
+  final db = FirebaseFirestore.instance;
+  final storage = FirebaseStorage.instance;
+
+  Future<List<String>?> _saveImages(ProdutoModel model) async {
+    final resultUrls = <String>[];
+
+    if (model.imagemUrl.isNotEmpty) {
+      for (final url in model.imagemUrl) {
+        final ref = storage.ref('produto_imagens').child(const Uuid().v4());
+        await ref.putFile(File(url)).then((value) async {
+          resultUrls.add(await value.ref.getDownloadURL());
+        });
+      }
+
+      return resultUrls;
+    } else {
+      return null;
+    }
+  }
 
   @override
   Future<ProdutoModel> addProduto(ProdutoModel produto) async {
     try {
-      await db.collection('produtos').add(produto.toMap());
-      return Future.value(produto);
+      final imagemUrls = await _saveImages(produto);
+      final model = produto.copyWith(imagemUrl: imagemUrls ?? []);
+
+      await db.collection('produtos').add(model.toMap());
+      return produto;
     } catch (e) {
-      return Future.error(e);
+      rethrow;
     }
   }
 
@@ -45,7 +70,11 @@ class ProdutoFirebase implements IProdutoFirebase {
   @override
   Future<List<ProdutoModel>> getProdutos() async {
     try {
-      final snapshot = await db.collection('produtos').get();
+      final snapshot = await db.collection('produtos').get().then((value) {
+        value.docs.map((doc) => doc.data()).toList();
+        return value;
+      });
+
       return Future.value(
         snapshot.docs.map((doc) => ProdutoModel.fromMap(doc.data())).toList(),
       );

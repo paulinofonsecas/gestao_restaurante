@@ -10,10 +10,10 @@ sealed class NomeInputState extends Equatable {
 final class NomeInputInitial extends NomeInputState {}
 
 final class NomeInputChanged extends NomeInputState {
-  const NomeInputChanged({required this.text});
+  const NomeInputChanged({required this.nome});
 
-  final String text;
+  final String nome;
 
   @override
-  List<String> get props => [text];
+  List<String> get props => [nome];
 }

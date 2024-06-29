@@ -32,3 +32,18 @@ class AddProdutoInitial extends AddProdutoState {
   /// {@macro add_produto_initial}
   const AddProdutoInitial() : super();
 }
+
+class AddNewProdutoLoading extends AddProdutoState {
+  const AddNewProdutoLoading() : super();
+}
+
+class AddNewProdutoSuccess extends AddProdutoState {
+  /// {@macro add_produto_initial}
+  const AddNewProdutoSuccess() : super();
+}
+
+class AddNewProdutoError extends AddProdutoState {
+  const AddNewProdutoError(this.message) : super();
+
+  final String message;
+}

@@ -3,20 +3,15 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
-import 'package:gestao_restaurante/dados/entidades/ingrediente_model.dart';
-import 'package:gestao_restaurante/dados/entidades/proporcao_model.dart';
 
 class ProdutoModel {
   final String id;
   final String nome;
   final String descricao;
-  final String imagemUrl;
+  final List<String> imagemUrl;
   final double preco;
   final CategoriaModel categoria;
-  final List<IngredienteModel> ingredientes;
-  final ProporcaoModel? promocao;
   final bool disponibilidade;
-
   ProdutoModel({
     required this.id,
     required this.nome,
@@ -24,20 +19,16 @@ class ProdutoModel {
     required this.imagemUrl,
     required this.preco,
     required this.categoria,
-    required this.ingredientes,
     required this.disponibilidade,
-    this.promocao,
   });
 
   ProdutoModel copyWith({
     String? id,
     String? nome,
     String? descricao,
-    String? imagemUrl,
+    List<String>? imagemUrl,
     double? preco,
     CategoriaModel? categoria,
-    List<IngredienteModel>? ingredientes,
-    ProporcaoModel? promocao,
     bool? disponibilidade,
   }) {
     return ProdutoModel(
@@ -47,8 +38,6 @@ class ProdutoModel {
       imagemUrl: imagemUrl ?? this.imagemUrl,
       preco: preco ?? this.preco,
       categoria: categoria ?? this.categoria,
-      ingredientes: ingredientes ?? this.ingredientes,
-      promocao: promocao ?? this.promocao,
       disponibilidade: disponibilidade ?? this.disponibilidade,
     );
   }
@@ -61,27 +50,21 @@ class ProdutoModel {
       'imagemUrl': imagemUrl,
       'preco': preco,
       'categoria': categoria.toMap(),
-      'ingredientes': ingredientes.map((x) => x.toMap()).toList(),
-      'promocao': promocao?.toMap(),
       'disponibilidade': disponibilidade,
     };
   }
 
   factory ProdutoModel.fake() {
     return ProdutoModel(
-      id: 'id',
-      nome: 'Frango panado',
-      descricao: 'Este e um prato de teste',
-      imagemUrl: 'https://images.unsplash.com/photo-1516865131505-4dabf2efc692?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      preco: 2500.34,
-      categoria: CategoriaModel.fake(),
-      ingredientes: [
-        IngredienteModel.fake(),
-        IngredienteModel.fake(),
-        IngredienteModel.fake(),
+      id: 'fake',
+      nome: 'fake',
+      descricao: 'fake',
+      imagemUrl: [
+        'https://images.unsplash.com/photo-1516865131505-4dabf2efc692?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       ],
+      preco: 0,
+      categoria: CategoriaModel.fake(),
       disponibilidade: true,
-      promocao: ProporcaoModel.fake(),
     );
   }
 
@@ -90,18 +73,10 @@ class ProdutoModel {
       id: map['id'] as String,
       nome: map['nome'] as String,
       descricao: map['descricao'] as String,
-      imagemUrl: map['imagemUrl'] as String,
+      imagemUrl: List<String>.from(map['imagemUrl'] as List<dynamic>),
       preco: map['preco'] as double,
       categoria:
           CategoriaModel.fromMap(map['categoria'] as Map<String, dynamic>),
-      ingredientes: List<IngredienteModel>.from(
-        (map['ingredientes'] as List<int>).map<IngredienteModel>(
-          (x) => IngredienteModel.fromMap(x as Map<String, dynamic>),
-        ),
-      ),
-      promocao: map['promocao'] != null
-          ? ProporcaoModel.fromMap(map['promocao'] as Map<String, dynamic>)
-          : null,
       disponibilidade: map['disponibilidade'] as bool,
     );
   }
@@ -113,7 +88,7 @@ class ProdutoModel {
 
   @override
   String toString() {
-    return 'ProdutoModel(id: $id, nome: $nome, descricao: $descricao, imagemUrl: $imagemUrl, preco: $preco, categoria: $categoria, ingredientes: $ingredientes, promocao: $promocao, disponibilidade: $disponibilidade)';
+    return 'ProdutoModel(id: $id, nome: $nome, descricao: $descricao, imagemUrl: $imagemUrl, preco: $preco, categoria: $categoria, disponibilidade: $disponibilidade)';
   }
 
   @override
@@ -123,11 +98,9 @@ class ProdutoModel {
     return other.id == id &&
         other.nome == nome &&
         other.descricao == descricao &&
-        other.imagemUrl == imagemUrl &&
+        listEquals(other.imagemUrl, imagemUrl) &&
         other.preco == preco &&
         other.categoria == categoria &&
-        listEquals(other.ingredientes, ingredientes) &&
-        other.promocao == promocao &&
         other.disponibilidade == disponibilidade;
   }
 
@@ -139,8 +112,6 @@ class ProdutoModel {
         imagemUrl.hashCode ^
         preco.hashCode ^
         categoria.hashCode ^
-        ingredientes.hashCode ^
-        promocao.hashCode ^
         disponibilidade.hashCode;
   }
 }

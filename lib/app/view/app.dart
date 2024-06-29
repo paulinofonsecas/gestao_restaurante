@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestao_restaurante/app/view/setup_project.dart';
 import 'package:gestao_restaurante/features/gestao_produtos/gestao_produtos.dart';
 import 'package:gestao_restaurante/l10n/l10n.dart';
 
@@ -7,6 +8,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // setUpProject();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

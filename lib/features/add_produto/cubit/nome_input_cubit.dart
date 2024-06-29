@@ -7,6 +7,6 @@ class NomeInputCubit extends Cubit<NomeInputState> {
   NomeInputCubit() : super(NomeInputInitial());
 
   void onChanged(String t) {
-    emit(NomeInputChanged(text: t));
+    emit(NomeInputChanged(nome: t));
   }
 }

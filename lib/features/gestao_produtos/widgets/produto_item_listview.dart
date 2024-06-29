@@ -9,6 +9,14 @@ class ProdutoItemListView extends StatelessWidget {
 
   final ProdutoModel produto;
 
+  String get getImage {
+    if (produto.imagemUrl.isEmpty) {
+      return 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png';
+    }
+
+    return produto.imagemUrl.first;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -21,7 +29,7 @@ class ProdutoItemListView extends StatelessWidget {
             ),
       ),
       subtitle: Text(produto.preco.toString()),
-      leading: _ImageWidget(url: produto.imagemUrl),
+      leading: _ImageWidget(url: getImage),
     );
   }
 }

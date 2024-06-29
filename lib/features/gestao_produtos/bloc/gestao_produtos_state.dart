@@ -32,3 +32,30 @@ class GestaoProdutosInitial extends GestaoProdutosState {
   /// {@macro gestao_produtos_initial}
   const GestaoProdutosInitial() : super();
 }
+
+class GetAllProdutosLoading extends GestaoProdutosState {
+  /// {@macro gestao_produtos_initial}
+  const GetAllProdutosLoading() : super();
+}
+
+class GetAllProdutosEmpty extends GestaoProdutosState {}
+
+class GetAllProdutosSuccess extends GestaoProdutosState {
+  /// {@macro gestao_produtos_initial}
+  const GetAllProdutosSuccess(this.produtos) : super();
+
+  final List<ProdutoModel> produtos;
+
+  @override
+  List<Object> get props => [produtos];
+}
+
+class GetAllProdutosError extends GestaoProdutosState {
+  /// {@macro gestao_produtos_initial}
+  const GetAllProdutosError(this.message) : super();
+
+  final String message;
+
+  @override
+  List<Object> get props => [message];
+}

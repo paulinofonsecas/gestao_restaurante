@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:uuid/uuid.dart';
+
 class CategoriaModel {
   final String id;
   final String descricao;
@@ -26,12 +28,20 @@ class CategoriaModel {
     };
   }
 
-  factory CategoriaModel.fake() {
+  factory CategoriaModel.fake([String descricao = 'descricao']) {
     return CategoriaModel(
       id: 'id',
-      descricao: 'descricao',
+      descricao: descricao,
     );
   }
+
+  factory CategoriaModel.make(String descricao) {
+    return CategoriaModel(
+      id: const Uuid().v4(),
+      descricao: descricao,
+    );
+  }
+
   factory CategoriaModel.fromMap(Map<String, dynamic> map) {
     return CategoriaModel(
       id: map['id'] as String,

@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gestao_restaurante/features/add_produto/cubit/disponibilidade_field_cubit.dart';
 
 class DisponibilidadeInputField extends StatelessWidget {
   const DisponibilidadeInputField({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SwitchListTile(
-      value: true,
-      onChanged: (_) {},
-      title: const Text('Disponível'),
+    return BlocBuilder<DisponibilidadeFieldCubit, DisponibilidadeFieldState>(
+      builder: (context, state) {
+        return SwitchListTile(
+          value: state.disponibilidade,
+          onChanged: (value) {
+            context.read<DisponibilidadeFieldCubit>().onChanged(value);
+          },
+          title: const Text('Disponível'),
+        );
+      },
     );
   }
 }
