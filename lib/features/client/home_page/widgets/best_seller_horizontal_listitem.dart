@@ -27,7 +27,9 @@ class BestSellerHorizontalListItem extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            GlobalImageNetworkWidget(produto.imagemUrl.first),
+            GlobalImageNetworkWidget(
+              produto.imagemUrl.firstOrNull ?? '',
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
