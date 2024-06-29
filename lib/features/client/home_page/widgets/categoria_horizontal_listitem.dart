@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
@@ -5,10 +6,12 @@ import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
 class CategoriaHorizontalListItem extends StatelessWidget {
   const CategoriaHorizontalListItem({
     required this.categoria,
+    required this.isActive,
     super.key,
   });
 
   final CategoriaModel categoria;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -20,27 +23,32 @@ class CategoriaHorizontalListItem extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Colors.orange.withOpacity(0.1),
-      ),
-      child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(
-              Icons.fastfood,
-              color: Colors.orange,
-              size: 14,
-            ),
-            const GutterSmall(),
-            Text(
-              categoria.descricao,
-              style: const TextStyle(
-                color: Colors.orange,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+        color: isActive ? Colors.white : Colors.orange.withOpacity(0.1),
+        border: Border.all(
+          color: isActive ? Colors.orange : Colors.transparent,
+          width: 2,
         ),
+      ),
+      alignment: Alignment.center,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            Icons.fastfood,
+            color: Colors.orange,
+            size: 14,
+          ),
+          const GutterSmall(),
+          Text(
+            'Fritos',
+            style: TextStyle(
+              color: isActive ? Colors.black : Colors.orange,
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            ),
+          ),
+        ],
       ),
     );
   }

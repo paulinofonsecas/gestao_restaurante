@@ -8,8 +8,9 @@ class InitialMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PadWid(
       child: Text(
-        'Escolhas os pratos que deseja',
-        style: Theme.of(context).textTheme.displayMedium?.copyWith(
+        'Temos para si varios sabores para sua refeição',
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
               color: Colors.orange,
               fontWeight: FontWeight.bold,
             ),

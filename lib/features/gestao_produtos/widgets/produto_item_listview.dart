@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
+import 'package:gestao_restaurante/global/widgets/global_image_network_widget.dart';
 
 class ProdutoItemListView extends StatelessWidget {
   const ProdutoItemListView({
@@ -43,7 +44,7 @@ class _ImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      child: Image.network(
+      child: GlobalImageNetworkWidget(
         url,
         width: 60,
         height: 60,
