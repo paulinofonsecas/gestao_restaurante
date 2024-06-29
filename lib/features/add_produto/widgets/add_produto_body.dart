@@ -25,39 +25,36 @@ class AddProdutoBody extends StatefulWidget {
 class _AddProdutoBodyState extends State<AddProdutoBody> {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: const [],
-      child: Padding(
-        padding: const EdgeInsets.all(kDefaultPadding),
-        child: BlocBuilder<AddProdutoBloc, AddProdutoState>(
-          builder: (context, state) {
-            if (state is AddNewProdutoLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
+    return Padding(
+      padding: const EdgeInsets.all(kDefaultPadding),
+      child: BlocBuilder<AddProdutoBloc, AddProdutoState>(
+        builder: (context, state) {
+          if (state is AddNewProdutoLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-            if (state is AddNewProdutoError) {
-              return Center(child: Text(state.message));
-            }
+          if (state is AddNewProdutoError) {
+            return Center(child: Text(state.message));
+          }
 
-            return const SingleChildScrollView(
-              child: Column(
-                children: [
-                  NomeInputField(),
-                  Gutter(),
-                  DescricaoInputField(),
-                  Gutter(),
-                  PrecoInputField(),
-                  Gutter(),
-                  CategoriaInputField(),
-                  Gutter(),
-                  DisponibilidadeInputField(),
-                  Gutter(),
-                  ImagemInputField(),
-                ],
-              ),
-            );
-          },
-        ),
+          return const SingleChildScrollView(
+            child: Column(
+              children: [
+                NomeInputField(),
+                Gutter(),
+                DescricaoInputField(),
+                Gutter(),
+                PrecoInputField(),
+                Gutter(),
+                CategoriaInputField(),
+                Gutter(),
+                DisponibilidadeInputField(),
+                Gutter(),
+                ImagemInputField(),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
