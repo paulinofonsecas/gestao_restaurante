@@ -38,7 +38,7 @@ class HomePagePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Na Garagem'),
         ),
-        drawer: const Drawer(),
+        // drawer: const Drawer(),
         body: const HomePageView(),
       ),
     );
