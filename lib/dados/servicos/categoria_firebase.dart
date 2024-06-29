@@ -13,6 +13,7 @@ class CategoriaFirebase implements ICategoriaFirebase {
   final FirebaseFirestore db = FirebaseFirestore.instance;
 
   final _collection = 'categorias';
+  List<CategoriaModel> categoriasCache = [];
 
   @override
   Future<CategoriaModel> addCategoria(CategoriaModel categoria) async {
@@ -46,11 +47,19 @@ class CategoriaFirebase implements ICategoriaFirebase {
 
   @override
   Future<List<CategoriaModel>> getCategorias() async {
+    if (categoriasCache.isNotEmpty) {
+      return Future.value(categoriasCache);
+    }
+
     try {
       final snapshot = await db.collection(_collection).get();
-      return Future.value(
-        snapshot.docs.map((doc) => CategoriaModel.fromMap(doc.data())).toList(),
-      );
+      final list = snapshot.docs
+          .map((doc) => CategoriaModel.fromMap(doc.data()))
+          .toList();
+
+      categoriasCache = list;
+
+      return list;
     } catch (e) {
       return Future.error(e);
     }
