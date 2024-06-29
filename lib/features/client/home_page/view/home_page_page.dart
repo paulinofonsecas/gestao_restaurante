@@ -37,6 +37,12 @@ class HomePagePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Na Garagem'),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.notifications_none_outlined),
+            ),
+          ],
         ),
         // drawer: const Drawer(),
         body: const HomePageView(),
