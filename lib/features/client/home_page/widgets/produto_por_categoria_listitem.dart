@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
 
@@ -9,6 +11,14 @@ class ProdutoPorCategoriaListItem extends StatelessWidget {
   });
 
   final ProdutoModel produto;
+
+  String? _getImage(List<String> images) {
+    if (images.isEmpty) return null;
+
+    return produto.imagemUrl.length == 1
+        ? images.first
+        : images[Random.secure().nextInt(images.length)];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +41,7 @@ class ProdutoPorCategoriaListItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                  image: NetworkImage(produto.imagemUrl.first),
+                  image: NetworkImage(_getImage(produto.imagemUrl) ?? ''),
                   fit: BoxFit.cover,
                 ),
               ),

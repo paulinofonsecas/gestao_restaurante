@@ -185,16 +185,21 @@ List<ProdutoModel> _generateProdutos(List<CategoriaModel> categorias) {
 Future<void> populateProducts() async {
   final categorias = categoriaList;
 
-  // salva as categorias no banco de dados
-  final cf = CategoriaFirebase();
-  for (final categoria in categorias) {
-    await cf.addCategoria(categoria);
-  }
-  // fim da gravacao das categorias
+  await populateCategorias();
 
   final prods = _generateProdutos(categorias);
   final pf = ProdutoFirebase();
   for (final produto in prods) {
     await pf.addProduto(produto);
+  }
+}
+
+Future<void> populateCategorias() async {
+  final categorias = categoriaList;
+
+  // salva as categorias no banco de dados
+  final cf = CategoriaFirebase();
+  for (final categoria in categorias) {
+    await cf.addCategoria(categoria);
   }
 }

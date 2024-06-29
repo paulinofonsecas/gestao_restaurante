@@ -41,7 +41,7 @@ class CategoriaHorizontalListItem extends StatelessWidget {
           ),
           const GutterSmall(),
           Text(
-            'Fritos',
+            categoria.descricao,
             style: TextStyle(
               color: isActive ? Colors.black : Colors.orange,
               fontWeight: FontWeight.bold,

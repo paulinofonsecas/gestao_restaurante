@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/features/client/home_page/bloc/bloc.dart';
 import 'package:gestao_restaurante/features/client/home_page/cubit/best_sallers_horizontal_cubit.dart';
+import 'package:gestao_restaurante/features/client/home_page/cubit/categorias_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/cubit/produto_por_categoria_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/home_page_body.dart';
 
@@ -28,6 +29,9 @@ class HomePagePage extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ProdutoPorCategoriaHorizontalCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CategoriasHorizontalCubit(),
         ),
       ],
       child: Scaffold(
