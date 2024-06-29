@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gestao_restaurante/features/add_produto/view/add_produto_page.dart';
 import 'package:gestao_restaurante/features/gestao_produtos/bloc/bloc.dart';
 import 'package:gestao_restaurante/features/gestao_produtos/widgets/gestao_produtos_body.dart';
+import 'package:gestao_restaurante/produtos_faker.dart';
 
 /// {@template gestao_produtos_page}
 /// A description for GestaoProdutosPage
@@ -17,7 +18,7 @@ class GestaoProdutosPage extends StatelessWidget {
     );
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GestaoProdutosBloc(),

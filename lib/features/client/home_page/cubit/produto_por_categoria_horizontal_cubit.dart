@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
 import 'package:gestao_restaurante/dados/servicos/produto_firebase.dart';
 
@@ -10,13 +11,13 @@ class ProdutoPorCategoriaHorizontalCubit
   ProdutoPorCategoriaHorizontalCubit()
       : super(ProdutoPorCategoriaHorizontalInitial());
 
-  Future<void> getProdutosPorCategoria() async {
+  Future<void> getProdutosPorCategoria({CategoriaModel? categoria}) async {
     final produtoFirebase = ProdutoFirebase();
 
     emit(ProdutoPorCategoriaHorizontalLoading());
 
     await produtoFirebase
-        .getProdutos()
+        .getProdutos(categoria: categoria)
         .then(
           (e) => emit(
             ProdutoPorCategoriaHorizontalSuccess(produtoPorCategoria: e),

@@ -2,11 +2,12 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:gestao_restaurante/dados/entidades/categoria_model.dart';
 import 'package:gestao_restaurante/dados/entidades/produto_model.dart';
 import 'package:uuid/uuid.dart';
 
 abstract class IProdutoFirebase {
-  Future<List<ProdutoModel>> getProdutos();
+  Future<List<ProdutoModel>> getProdutos({CategoriaModel? categoria});
   Future<ProdutoModel> getProduto(String id);
   Future<ProdutoModel> addProduto(ProdutoModel produto);
   Future<ProdutoModel> updateProduto(ProdutoModel produto);
@@ -72,16 +73,21 @@ class ProdutoFirebase implements IProdutoFirebase {
   }
 
   @override
-  Future<List<ProdutoModel>> getProdutos() async {
+  Future<List<ProdutoModel>> getProdutos({CategoriaModel? categoria}) async {
     try {
-      final snapshot = await db.collection('produtos').get().then((value) {
-        value.docs.map((doc) => doc.data()).toList();
-        return value;
-      });
+      final iterables = (await db.collection('produtos').get())
+          .docs
+          .map((e) => e.data())
+          .toList();
+      final produtos = iterables.map(ProdutoModel.fromMap).toList();
 
-      return Future.value(
-        snapshot.docs.map((doc) => ProdutoModel.fromMap(doc.data())).toList(),
-      );
+      if (categoria != null) {
+        return produtos.where((e) {
+          return e.categoria.id == categoria.id;
+        }).toList();
+      } else {
+        return produtos;
+      }
     } catch (e) {
       return Future.error(e);
     }

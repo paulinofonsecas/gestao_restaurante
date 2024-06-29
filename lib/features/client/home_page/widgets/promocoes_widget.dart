@@ -35,7 +35,7 @@ class _PromocoesWidgetState extends State<PromocoesWidget> {
 
     return CarouselSlider(
       options: CarouselOptions(
-        height: 128,
+        height: 168,
         viewportFraction: .95,
         enlargeCenterPage: true,
         autoPlay: true,
@@ -67,7 +67,7 @@ class _PromocaoItemWidget extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(

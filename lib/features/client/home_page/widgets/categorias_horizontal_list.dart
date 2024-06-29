@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:gestao_restaurante/features/client/home_page/cubit/categorias_horizontal_cubit.dart';
+import 'package:gestao_restaurante/features/client/home_page/cubit/produto_por_categoria_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/categoria_horizontal_listitem.dart';
 import 'package:gestao_restaurante/global/widgets/padding_widget.dart';
 
@@ -57,6 +58,13 @@ class CategoriasHorizontalList extends StatelessWidget {
                   itemBuilder: (context, index) => CategoriaHorizontalListItem(
                     isActive: index == 0,
                     categoria: categorias[index],
+                    onTap: () {
+                      context
+                          .read<ProdutoPorCategoriaHorizontalCubit>()
+                          .getProdutosPorCategoria(
+                            categoria: categorias[index],
+                          );
+                    },
                   ),
                 ),
               );
