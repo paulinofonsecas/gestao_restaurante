@@ -41,7 +41,7 @@ class HomePageSearchWidget extends StatelessWidget {
             Text(
               'Pesquise por produtos',
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: Colors.deepOrange,
+                    color: Colors.black.withOpacity(0.5),
                   ),
             ),
           ],

@@ -4,6 +4,7 @@ import 'package:gestao_restaurante/features/client/home_page/cubit/best_sallers_
 import 'package:gestao_restaurante/features/client/home_page/cubit/categorias_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/cubit/produto_por_categoria_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/home_page_body.dart';
+import 'package:gestao_restaurante/features/client/home_page/widgets/home_page_drawer.dart';
 
 /// {@template home_page_page}
 /// A description for HomePagePage
@@ -44,7 +45,7 @@ class HomePagePage extends StatelessWidget {
             ),
           ],
         ),
-        // drawer: const Drawer(),
+        drawer: const HomePageDrawer(),
         body: const HomePageView(),
       ),
     );
