@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gestao_restaurante/dados/entidades/local_user.dart';
 import 'package:gestao_restaurante/dados/entidades/local_user_credential.dart';
 import 'package:gestao_restaurante/dados/servicos/login_firebase.dart';
+import 'package:gestao_restaurante/dependencies.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
@@ -33,6 +34,11 @@ class AuthenticationBloc
       final user = await _loginFirebase.login(email, password);
 
       if (user != null) {
+        if (getIt.isRegistered<LocalUser>()) {
+          getIt.unregister<LocalUser>();
+        }
+
+        getIt.registerSingleton<LocalUser>(user);
         emit(AuthenticationSignInSuccess(user: user));
       } else {
         emit(const AuthenticationSignInError('Erro ao realizar login'));
@@ -81,11 +87,11 @@ class AuthenticationBloc
       if (user != null) {
         emit(AuthenticationSignUpSuccess(user: user));
       } else {
-        emit(const AuthenticationSignUpError('Erro ao realizar login'));
+        emit(const AuthenticationSignUpError('Erro ao criar a conta'));
       }
     } catch (e) {
       print(e);
-      emit(const AuthenticationSignUpError('Erro ao realizar login'));
+      emit(const AuthenticationSignUpError('Erro ao criar a conta'));
     }
   }
 }

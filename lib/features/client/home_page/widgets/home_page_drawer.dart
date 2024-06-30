@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestao_restaurante/dados/servicos/login_firebase.dart';
 import 'package:gestao_restaurante/global/authentication/view/authentication_page.dart';
 
 class HomePageDrawer extends StatelessWidget {
@@ -30,9 +31,21 @@ class HomePageDrawer extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              onTap: () => Navigator.of(context).pushReplacement(
-                AuthenticationPage.route(),
-              ),
+              onTap: () async {
+                await LoginFirebase.instance
+                    .logout()
+                    .then(
+                      (value) => Navigator.of(context)
+                          .pushReplacement(AuthenticationPage.route()),
+                    )
+                    .onError((e, t) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Erro ao encerrar sessão'),
+                    ),
+                  );
+                });
+              },
               title: const Text('Terminar Sessão'),
               trailing: const Icon(Icons.exit_to_app),
             ),
