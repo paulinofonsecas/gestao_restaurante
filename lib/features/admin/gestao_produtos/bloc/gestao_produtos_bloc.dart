@@ -20,7 +20,9 @@ class GestaoProdutosBloc
   ) async {
     emit(const GetAllProdutosLoading());
 
-    await ProdutoFirebase.instance.getProdutos().then((value) {
+    await ProdutoFirebase.instance
+        .getProdutos(cache: event.inCache)
+        .then((value) {
       if (value.isEmpty) {
         emit(GetAllProdutosEmpty());
         return;

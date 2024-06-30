@@ -8,13 +8,13 @@ part 'best_sallers_horizontal_state.dart';
 class BestSallersHorizontalCubit extends Cubit<BestSallersHorizontalState> {
   BestSallersHorizontalCubit() : super(BestSallersHorizontalInitial());
 
-  Future<void> getBestSellerProducts() async {
+  Future<void> getBestSellerProducts({bool inCache = true}) async {
     final produtoFirebase = ProdutoFirebase.instance;
 
     emit(BestSallersHorizontalLoading());
 
     await produtoFirebase
-        .getProdutos()
+        .getProdutos(cache: inCache)
         .then(
           (e) => emit(
             BestSallersHorizontalSuccess(

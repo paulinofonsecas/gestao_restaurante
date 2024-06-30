@@ -77,8 +77,11 @@ class ProdutoFirebase implements IProdutoFirebase {
   }
 
   @override
-  Future<List<ProdutoModel>> getProdutos({CategoriaModel? categoria}) async {
-    if (produtosCache.isNotEmpty) {
+  Future<List<ProdutoModel>> getProdutos({
+    CategoriaModel? categoria,
+    bool cache = true,
+  }) async {
+    if (produtosCache.isNotEmpty && cache) {
       return produtosCache;
     }
 

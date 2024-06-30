@@ -11,6 +11,9 @@ abstract class GestaoProdutosEvent extends Equatable {
 /// Event added when some custom logic happens
 /// {@endtemplate}
 class GetAllProdutosEvent extends GestaoProdutosEvent {
-  /// {@macro custom_gestao_produtos_event}
-  const GetAllProdutosEvent();
+  const GetAllProdutosEvent({
+    this.inCache = true,
+  });
+
+  final bool inCache;
 }

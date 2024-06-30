@@ -12,10 +12,9 @@ class CategoriaFieldCubit extends Cubit<CategoriaFieldState> {
     emit(CategoriaFieldChange(value));
   }
 
-  Future<List<CategoriaModel>> getCategorias() {
-    return CategoriaFirebase().getCategorias().then((value) {
-      // value.add(CategoriaModel.fake('Teste'));
-      return value;
-    });
+  Future<List<CategoriaModel>> getCategorias({bool cache = true}) {
+    return CategoriaFirebase()
+        .getCategorias(cache: cache)
+        .then((value) => value);
   }
 }

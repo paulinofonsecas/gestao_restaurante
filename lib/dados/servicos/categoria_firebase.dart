@@ -46,8 +46,8 @@ class CategoriaFirebase implements ICategoriaFirebase {
   }
 
   @override
-  Future<List<CategoriaModel>> getCategorias() async {
-    if (categoriasCache.isNotEmpty) {
+  Future<List<CategoriaModel>> getCategorias({bool cache = true}) async {
+    if (categoriasCache.isNotEmpty && cache) {
       return Future.value(categoriasCache);
     }
 

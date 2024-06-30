@@ -1,4 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:gestao_restaurante/features/admin/add_produto/cubit/categoria_field_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/bloc/bloc.dart';
 import 'package:gestao_restaurante/features/client/home_page/cubit/best_sallers_horizontal_cubit.dart';
 import 'package:gestao_restaurante/features/client/home_page/cubit/categorias_horizontal_cubit.dart';
@@ -61,6 +64,15 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomePageBody();
+    return RefreshIndicator(
+      onRefresh: () async {
+        await context
+            .read<BestSallersHorizontalCubit>()
+            .getBestSellerProducts(inCache: false);
+
+        await context.read<CategoriaFieldCubit>().getCategorias(cache: false);
+      },
+      child: const HomePageBody(),
+    );
   }
 }
