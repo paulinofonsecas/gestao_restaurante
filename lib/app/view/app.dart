@@ -1,6 +1,5 @@
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/global/login/view/login_page.dart';
+import 'package:gestao_restaurante/global/authentication/authentication.dart';
 import 'package:gestao_restaurante/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -18,19 +17,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const LoginPage(),
-      routes: {
-        '/email-link-sign-in': (context) {
-          return SignInScreen(
-            actions: [
-              AuthStateChangeAction<SignedIn>((context, state) {
-                Navigator.pushReplacementNamed(context, '/');
-              }),
-            ],
-            headerMaxExtent: 200,
-          );
-        },
-      },
+      home: const AuthenticationPage(),
     );
   }
 }

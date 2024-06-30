@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestao_restaurante/global/login/view/login_page.dart';
+import 'package:gestao_restaurante/global/authentication/view/authentication_page.dart';
 
 class HomePageDrawer extends StatelessWidget {
   const HomePageDrawer({super.key});
@@ -31,7 +31,7 @@ class HomePageDrawer extends StatelessWidget {
             const Divider(),
             ListTile(
               onTap: () => Navigator.of(context).pushReplacement(
-                LoginPage.route(),
+                AuthenticationPage.route(),
               ),
               title: const Text('Terminar Sessão'),
               trailing: const Icon(Icons.exit_to_app),

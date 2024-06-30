@@ -41,14 +41,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.5.0"
-  asn1lib:
-    dependency: transitive
-    description:
-      name: asn1lib
-      sha256: "58082b3f0dca697204dbab0ef9ff208bfaea7767ea771076af9a343488428dda"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.5.3"
   async:
     dependency: transitive
     description:
@@ -193,14 +185,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.3"
-  crypto_keys:
-    dependency: transitive
-    description:
-      name: crypto_keys
-      sha256: acc19abf34623d990a0e8aec69463d74a824c31f137128f42e2810befc509ad0
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.3.0+1"
   desktop_webview_auth:
     dependency: transitive
     description:
@@ -298,7 +282,7 @@ packages:
     source: hosted
     version: "0.9.3+1"
   firebase_auth:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_auth
       sha256: "087fdcb54b0af6f4c5c756e1db4f90e9b65871b9b3a75fabaa0e0ee578301669"
@@ -313,14 +297,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.4.1"
-  firebase_auth_token:
-    dependency: "direct main"
-    description:
-      name: firebase_auth_token
-      sha256: bb879844ab8c24fb57b50e6f26d407226d75eeccc84150892d857f7144807f84
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.6"
   firebase_auth_web:
     dependency: transitive
     description:
@@ -637,14 +613,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.4"
-  jose:
-    dependency: transitive
-    description:
-      name: jose
-      sha256: "7955ec5d131960104e81fbf151abacb9d835c16c9e793ed394b2809f28b2198d"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.3.4"
   js:
     dependency: transitive
     description:
@@ -853,14 +821,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.8"
-  pointycastle:
-    dependency: transitive
-    description:
-      name: pointycastle
-      sha256: "4be0097fcf3fd3e8449e53730c631200ebc7b88016acecab2b0da2f0149222fe"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "3.9.1"
   pool:
     dependency: transitive
     description:
@@ -885,14 +845,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.4"
-  quiver:
-    dependency: transitive
-    description:
-      name: quiver
-      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "3.2.1"
   rxdart:
     dependency: transitive
     description:
@@ -1162,14 +1114,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.5.1"
-  x509:
-    dependency: transitive
-    description:
-      name: x509
-      sha256: "3262dc9a7d45b0876f886c01bfc7d5e765704f7dfd31f8cf5224fc875c17a6c6"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.2.4+2"
   xdg_directories:
     dependency: transitive
     description:

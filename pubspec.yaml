@@ -13,7 +13,7 @@ dependencies:
   cloud_firestore: ^5.0.2
   dropdown_search: ^5.0.6
   equatable: ^2.0.5
-  firebase_auth_token: ^1.0.6
+  firebase_auth: ^5.1.1
   firebase_core: ^3.1.1
   firebase_storage: ^12.1.0
   firebase_ui_auth: ^1.15.0
@@ -28,7 +28,6 @@ dependencies:
   modal_bottom_sheet: ^3.0.0
   searchable_listview: ^2.14.0
   uuid: ^4.4.0
-  
 
 dev_dependencies:
   bloc_test: ^9.1.6
@@ -40,3 +39,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+  assets:
+    - assets/imgs/
