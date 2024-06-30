@@ -8,13 +8,13 @@ part 'categorias_horizontal_state.dart';
 class CategoriasHorizontalCubit extends Cubit<CategoriasHorizontalState> {
   CategoriasHorizontalCubit() : super(CategoriasHorizontalInitial());
 
-  void getCategorias() {
+  Future<void> getCategorias({bool cache = true}) async {
     final cf = CategoriaFirebase();
 
     emit(CategoriasHorizontalLoading());
 
-    cf
-        .getCategorias()
+    await cf
+        .getCategorias(cache: cache)
         .then((e) => emit(CategoriasHorizontalSuccess(categorias: e)))
         .onError(
           (e, t) => emit(CategoriasHorizontalError(message: e.toString())),

@@ -50,6 +50,13 @@ class GestaoProdutosView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GestaoProdutosBody();
+    return RefreshIndicator(
+      onRefresh: () async {
+        context
+            .read<GestaoProdutosBloc>()
+            .add(const GetAllProdutosEvent(inCache: false));
+      },
+      child: const GestaoProdutosBody(),
+    );
   }
 }
