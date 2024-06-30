@@ -27,7 +27,7 @@ class CategoriaHorizontalListItem extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: isActive ? Colors.white : Colors.orange.withOpacity(0.1),
+          color: isActive ? Colors.white : Colors.deepOrange.withOpacity(0.1),
           border: Border.all(
             color: isActive ? Colors.orange : Colors.transparent,
             width: 2,

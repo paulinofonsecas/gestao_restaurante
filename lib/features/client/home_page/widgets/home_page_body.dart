@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/best_sellers_horizontal_list.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/categorias_horizontal_list.dart';
+import 'package:gestao_restaurante/features/client/home_page/widgets/header_widget.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/home_page_search_widget.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/produtos_por_categoria_list.dart';
 import 'package:gestao_restaurante/features/client/home_page/widgets/promocoes_widget.dart';
@@ -17,20 +18,19 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
-          // InitialMessage(),
-          Gutter(),
-          PromocoesWidget(),
-          Gutter(),
-          HomePageSearchWidget(),
-          Gutter(),
-          BestSallersHorizontalList(),
-          Gutter(),
-          CategoriasHorizontalList(),
-          Gutter(),
-          ProdutosPorCategoriaGrid(),
+          const HeaderWidget(),
+          HomePageSearchWidget(onTap: () {}),
+          const Gutter(),
+          const PromocoesWidget(),
+          const Gutter(),
+          const BestSallersHorizontalList(),
+          const Gutter(),
+          const CategoriasHorizontalList(),
+          const Gutter(),
+          const ProdutosPorCategoriaGrid(),
         ],
       ),
     );

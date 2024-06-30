@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:gestao_restaurante/constants.dart';
 import 'package:gestao_restaurante/dados/entidades/promocao_model.dart';
 import 'package:gestao_restaurante/global/widgets/global_image_network_widget.dart';
 
@@ -33,17 +34,33 @@ class _PromocoesWidgetState extends State<PromocoesWidget> {
       ),
     ];
 
-    return CarouselSlider(
-      options: CarouselOptions(
-        height: 168,
-        viewportFraction: .95,
-        enlargeCenterPage: true,
-        autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 5),
-      ),
-      items: promocoes.map((i) {
-        return _PromocaoItemWidget(i);
-      }).toList(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(kDefaultPadding),
+          child: Text(
+            'Promoções',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        CarouselSlider(
+          options: CarouselOptions(
+            height: 168,
+            viewportFraction: .9,
+            enlargeFactor: .2,
+            enlargeCenterPage: true,
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 5),
+          ),
+          items: promocoes.map((i) {
+            return _PromocaoItemWidget(i);
+          }).toList(),
+        ),
+      ],
     );
   }
 }

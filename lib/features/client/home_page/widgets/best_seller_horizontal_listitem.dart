@@ -30,7 +30,7 @@ class BestSellerHorizontalListItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         padding: const EdgeInsets.all(3),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
           color: Colors.orange.withOpacity(0.1),
         ),
         alignment: Alignment.bottomRight,
@@ -48,7 +48,7 @@ class BestSellerHorizontalListItem extends StatelessWidget {
                   padding: const EdgeInsets.all(4),
                   margin: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
                   ),
                   child: const Icon(
@@ -60,7 +60,7 @@ class BestSellerHorizontalListItem extends StatelessWidget {
                   padding: const EdgeInsets.all(4),
                   margin: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
                   ),
                   child: Text(
